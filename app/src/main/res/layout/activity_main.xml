@@ -16,7 +16,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mindorks.framework.mvvm.ui.main.MainActivity">
+    tools:context="com.mindorks.framework.mvvm.com.thresholdsoft.framework.mvvm.ui.main.MainActivity">
 
     <data>
 
@@ -24,7 +24,7 @@
 
         <variable
             name="viewModel"
-            type="com.mindorks.framework.mvvm.ui.main.MainViewModel" />
+            type="com.thresholdsoft.abn.mvvm.ui.main.MainViewModel" />
 
     </data>
 
@@ -88,10 +88,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:background="@color/white"
-                app:itemBackground="@color/white"
+                android:background="@color/blue"
+                app:itemBackground="@color/blue"
                 app:itemIconTint="@color/black_effective"
-                app:itemTextColor="@color/black_effective"
+                app:itemTextColor="@color/white"
                 app:menu="@menu/drawer">
 
                 <TextView
