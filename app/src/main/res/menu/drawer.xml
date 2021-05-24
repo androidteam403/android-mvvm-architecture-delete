@@ -16,24 +16,45 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
         <item
-            android:id="@+id/navItemAbout"
+            android:id="@+id/main_edit"
             android:checked="true"
-            android:icon="@drawable/ic_info_24px"
-            android:title="@string/about" />
+            android:title="MainEdition" />
         <item
-            android:id="@+id/navItemRateUs"
+            android:id="@+id/andhra"
             android:checked="true"
-            android:icon="@drawable/ic_star"
-            android:title="@string/rate_us" />
+            android:title="ANDHRA PRADESH" />
         <item
-            android:id="@+id/navItemFeed"
+            android:id="@+id/telengana"
             android:checked="true"
-            android:icon="@drawable/ic_rss_symbol"
-            android:title="@string/feed" />
+            android:title="TELENGANA" />
         <item
-            android:id="@+id/navItemLogout"
+            android:id="@+id/karnataka"
             android:checked="true"
-            android:icon="@drawable/ic_power_settings_new_24px"
-            android:title="@string/logout" />
+            android:title="KARNATAKA" />
+
+        <item
+            android:id="@+id/tamil_nadu"
+            android:checked="true"
+            android:title="TAMIL NADU" />
+        <item
+            android:id="@+id/magazines"
+            android:checked="true"
+            android:title="MAGAZINES" />
+        <item
+            android:id="@+id/about_us"
+            android:checked="true"
+            android:title="ABOUT US" />
+        <item
+            android:id="@+id/contact_us"
+            android:checked="true"
+            android:title="CONTACT US" />
+        <item
+            android:id="@+id/privacy_policy"
+            android:checked="true"
+            android:title="PRIVACY POLICY" />
+        <item
+            android:id="@+id/terma_conditions"
+            android:checked="true"
+            android:title="TERMS AND CONDITIONS" />
     </group>
 </menu>
