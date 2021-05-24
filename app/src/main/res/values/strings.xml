@@ -67,4 +67,7 @@
     <string name="empty_screen">We do not have anything\nhere right now.</string>
     <string name="please_retry">Please Retry</string>
     <string name="retry">Retry</string>
+    <string name="label_samayam">సమయం:</string>
+    <string name="label_news">News</string>
+    <string name="label_livetv">Live <font color='#9b2034'> TV</font></string>
 </resources>

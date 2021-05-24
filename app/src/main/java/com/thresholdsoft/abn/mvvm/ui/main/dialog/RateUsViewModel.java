@@ -24,7 +24,7 @@ import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
  * Created by amitshekhar on 10/07/17.
  */
 
-public class RateUsViewModel extends BaseViewModel<RateUsCallback> {
+public class RateUsViewModel extends BaseViewModel<DropDownNavigator> {
 
     public RateUsViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);

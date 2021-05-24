@@ -5,8 +5,12 @@
     <data>
 
         <variable
-            name="name"
-            type="String" />
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="newsAreaCategoryModel"
+            type="com.thresholdsoft.abn.mvvm.ui.main.ui.model.NewsAreaCategoryModel" />
     </data>
 
     <RelativeLayout
@@ -19,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen5dp"
             android:layout_marginLeft="@dimen/dimen5dp"
-            android:text="@{name}"
+            android:text="@{newsAreaCategoryModel.name}"
             android:textColor="@color/white"
             android:textSize="@dimen/dimen18sp"
             tools:ignore="RelativeOverlap" />
@@ -30,7 +34,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="@dimen/dimen5dp"
-            android:clickable="false"
-            android:layout_marginRight="@dimen/dimen5dp" />
+            android:layout_marginRight="@dimen/dimen5dp"
+            android:checked="@{newsAreaCategoryModel.isCheck ? true: false}"
+            android:clickable="false" />
     </RelativeLayout>
 </layout>

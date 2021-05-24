@@ -28,6 +28,12 @@ public interface MainNavigator {
 
     void onClickNews();
 
+    void onClickEpapers();
+
+    void onClickLiveTv();
+
+    void onClickSpeedNews();
+
     void onClickNavigationMenu();
 
     void onClickDropDown();

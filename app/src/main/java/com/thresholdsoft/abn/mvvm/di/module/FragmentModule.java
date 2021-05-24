@@ -4,6 +4,7 @@ import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.thresholdsoft.abn.mvvm.ViewModelProviderFactory;
 import com.thresholdsoft.abn.mvvm.data.DataManager;
 import com.thresholdsoft.abn.mvvm.ui.about.AboutViewModel;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseFragment;
@@ -11,8 +12,8 @@ import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogAdapter;
 import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogViewModel;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceAdapter;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceViewModel;
-import com.thresholdsoft.abn.mvvm.ViewModelProviderFactory;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedViewModel;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.speednews.SpeedNewsViewModel;
 import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
 
 import java.util.ArrayList;
@@ -69,10 +70,18 @@ public class FragmentModule {
         ViewModelProviderFactory<OpenSourceViewModel> factory = new ViewModelProviderFactory<>(OpenSourceViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(OpenSourceViewModel.class);
     }
+
     @Provides
     NewsFeedViewModel provideNewsFeedViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         Supplier<NewsFeedViewModel> supplier = () -> new NewsFeedViewModel(dataManager, schedulerProvider);
         ViewModelProviderFactory<NewsFeedViewModel> factory = new ViewModelProviderFactory<>(NewsFeedViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(NewsFeedViewModel.class);
+    }
+
+    @Provides
+    SpeedNewsViewModel provideSpeedNewsViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        Supplier<SpeedNewsViewModel> supplier = () -> new SpeedNewsViewModel(dataManager, schedulerProvider);
+        ViewModelProviderFactory<SpeedNewsViewModel> factory = new ViewModelProviderFactory<>(SpeedNewsViewModel.class, supplier);
+        return new ViewModelProvider(fragment, factory).get(SpeedNewsViewModel.class);
     }
 }

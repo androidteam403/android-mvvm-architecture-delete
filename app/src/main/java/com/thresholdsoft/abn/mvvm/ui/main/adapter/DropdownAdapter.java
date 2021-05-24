@@ -11,19 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.thresholdsoft.abn.R;
 import com.thresholdsoft.abn.databinding.AdapterDropdownBinding;
-import com.thresholdsoft.abn.mvvm.ui.main.dialog.RateUsCallback;
+import com.thresholdsoft.abn.mvvm.ui.main.dialog.DropDownNavigator;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.model.NewsAreaCategoryModel;
 
 import java.util.List;
 
 public class DropdownAdapter extends RecyclerView.Adapter<DropdownAdapter.ViewHolder> {
     private Context context;
-    private List<String> getDropDownList;
-    private RateUsCallback rateUsCallback;
+    private List<NewsAreaCategoryModel> newsAreaCategoryModelList;
+    private DropDownNavigator dropDownNavigator;
 
-    public DropdownAdapter(Context context, List<String> getDropDownList, RateUsCallback rateUsCallback) {
+    public DropdownAdapter(Context context, List<NewsAreaCategoryModel> newsAreaCategoryModelList, DropDownNavigator dropDownNavigator) {
         this.context = context;
-        this.getDropDownList = getDropDownList;
-        this.rateUsCallback = rateUsCallback;
+        this.newsAreaCategoryModelList = newsAreaCategoryModelList;
+        this.dropDownNavigator = dropDownNavigator;
     }
 
     @NonNull
@@ -36,21 +37,19 @@ public class DropdownAdapter extends RecyclerView.Adapter<DropdownAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull DropdownAdapter.ViewHolder holder, int position) {
-        String name = getDropDownList.get(position);
-        holder.dropdownBinding.setName(name);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (rateUsCallback != null) {
-                    rateUsCallback.onItemClick(name);
-                }
+        NewsAreaCategoryModel newsAreaCategoryModel = newsAreaCategoryModelList.get(position);
+        holder.dropdownBinding.setNewsAreaCategoryModel(newsAreaCategoryModel);
+        holder.itemView.setOnClickListener(view -> {
+            if (dropDownNavigator != null) {
+                dropDownNavigator.onItemClick(newsAreaCategoryModel);
             }
         });
+
     }
 
     @Override
     public int getItemCount() {
-        return getDropDownList.size();
+        return newsAreaCategoryModelList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

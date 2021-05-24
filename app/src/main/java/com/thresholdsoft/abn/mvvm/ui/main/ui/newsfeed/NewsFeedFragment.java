@@ -40,6 +40,8 @@ public class NewsFeedFragment extends BaseFragment<FragmentNewsFeedsBinding, New
     }
 
     private FragmentNewsFeedsBinding newsFeedBinding;
+    private List<NewsFeedAdapter.NewsFeedModel> newsFeedModelList;
+    private NewsFeedAdapter newsFeedAdapter;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class NewsFeedFragment extends BaseFragment<FragmentNewsFeedsBinding, New
     }
 
     private void setUp() {
-        List<NewsFeedAdapter.NewsFeedModel> newsFeedModelList = new ArrayList<>();
+        newsFeedModelList = new ArrayList<>();
         NewsFeedAdapter.NewsFeedModel newsFeedModel = new NewsFeedAdapter.NewsFeedModel();
         newsFeedModel.setHeading("కరోనా నియంత్రణపై సీఎం జగన్ సమీక్ష");
         newsFeedModel.setTime("an hour ago");
@@ -87,13 +89,33 @@ public class NewsFeedFragment extends BaseFragment<FragmentNewsFeedsBinding, New
         newsFeedModel.setTime("5 hour ago");
         newsFeedModelList.add(newsFeedModel);
 
-
-        NewsFeedAdapter newsFeedAdapter = new NewsFeedAdapter(getContext(), newsFeedModelList, this);
+        newsFeedAdapter = new NewsFeedAdapter(getContext(), newsFeedModelList, this);
         RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
         newsFeedBinding.newsFeedRecyclerview.addItemDecoration(dividerItemDecoration);
         newsFeedBinding.newsFeedRecyclerview.setLayoutManager(mLayoutManager1);
         newsFeedBinding.newsFeedRecyclerview.setItemAnimator(new DefaultItemAnimator());
         newsFeedBinding.newsFeedRecyclerview.setAdapter(newsFeedAdapter);
+    }
+
+    @Override
+    public void onItemClick(int pos) {
+        for (int i = 0; i < newsFeedModelList.size(); i++) {
+            newsFeedModelList.get(i).setExpanded(false);
+        }
+        NewsFeedAdapter.NewsFeedModel newsFeedModel = newsFeedModelList.get(pos);
+        newsFeedModelList.remove(pos);
+        newsFeedModelList.add(0, newsFeedModel);
+        newsFeedModelList.get(0).setExpanded(true);
+        newsFeedBinding.newsFeedRecyclerview.scrollToPosition(0);
+        newsFeedAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClickCloseExpandedView() {
+        for (int i = 0; i < newsFeedModelList.size(); i++) {
+            newsFeedModelList.get(i).setExpanded(false);
+        }
+        newsFeedAdapter.notifyDataSetChanged();
     }
 }

@@ -1,19 +1,3 @@
-/*
- *  Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      https://mindorks.com/license/apache-v2
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License
- */
-
 package com.thresholdsoft.abn.mvvm.ui.main;
 
 import android.annotation.SuppressLint;
@@ -27,7 +11,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
@@ -49,8 +33,10 @@ import com.thresholdsoft.abn.mvvm.di.component.ActivityComponent;
 import com.thresholdsoft.abn.mvvm.ui.about.AboutFragment;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
 import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
-import com.thresholdsoft.abn.mvvm.ui.main.dialog.RateUsDialog;
+import com.thresholdsoft.abn.mvvm.ui.main.dialog.DropDownDialog;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.model.NewsAreaCategoryModel;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedFragment;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.speednews.SpeedNewsFragment;
 import com.thresholdsoft.abn.mvvm.utils.ScreenUtils;
 
 import java.util.ArrayList;
@@ -144,7 +130,37 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     @Override
     public void onClickNews() {
-        Toast.makeText(this, "you clicked", Toast.LENGTH_SHORT).show();
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.news.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+        NewsFeedFragment newsFeedFragment = new NewsFeedFragment();
+        loadFragment(newsFeedFragment, NewsFeedFragment.TAG);
+    }
+
+    @Override
+    public void onClickEpapers() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.ePapers.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+    }
+
+    @Override
+    public void onClickLiveTv() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.livetv.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+    }
+
+    @Override
+    public void onClickSpeedNews() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.speedNews.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+        SpeedNewsFragment speedNewsFragment = new SpeedNewsFragment();
+        loadFragment(speedNewsFragment, SpeedNewsFragment.TAG);
+    }
+
+    private void bottomNavigationItemSelectionUnselectionHandling() {
+        mActivityMainBinding.news.setBackground(null);
+        mActivityMainBinding.ePapers.setBackground(null);
+        mActivityMainBinding.livetv.setBackground(null);
+        mActivityMainBinding.speedNews.setBackground(null);
     }
 
     @SuppressLint("WrongConstant")
@@ -153,22 +169,48 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         mDrawer.openDrawer(Gravity.START);
     }
 
+    private List<NewsAreaCategoryModel> newsAreaCategoryModelList;
+
     @Override
     public void onClickDropDown() {
 //        RateUsDialog.newInstance().show(getSupportFragmentManager());
-        List<String> dropDownList = new ArrayList<>();
-        dropDownList.add("తెలంగాణ");
-        dropDownList.add("ఆంధ్రప్రదేశ్");
-        dropDownList.add("జాతీయం");
-        dropDownList.add("టెక్నాలజీ");
-        RateUsDialog dropDownDialog = new RateUsDialog();
-        dropDownDialog.setDropDownList(dropDownList, this);
-        dropDownDialog.show(getSupportFragmentManager());
+        if (newsAreaCategoryModelList != null && newsAreaCategoryModelList.size() > 0) {
+            DropDownDialog dropDownDialog = new DropDownDialog();
+            dropDownDialog.setDropDownList(newsAreaCategoryModelList, this);
+            dropDownDialog.show(getSupportFragmentManager());
+        } else {
+            newsAreaCategoryModelList = new ArrayList<>();
+            NewsAreaCategoryModel newsAreaCategoryModel = new NewsAreaCategoryModel();
+            newsAreaCategoryModel.setName("తెలంగాణ");
+            newsAreaCategoryModel.setCheck(true);
+            newsAreaCategoryModelList.add(newsAreaCategoryModel);
+            newsAreaCategoryModel = new NewsAreaCategoryModel();
+            newsAreaCategoryModel.setName("ఆంధ్రప్రదేశ్");
+            newsAreaCategoryModel.setCheck(false);
+            newsAreaCategoryModelList.add(newsAreaCategoryModel);
+            newsAreaCategoryModel = new NewsAreaCategoryModel();
+            newsAreaCategoryModel.setName("జాతీయం");
+            newsAreaCategoryModel.setCheck(false);
+            newsAreaCategoryModelList.add(newsAreaCategoryModel);
+            newsAreaCategoryModel = new NewsAreaCategoryModel();
+            newsAreaCategoryModel.setName("టెక్నాలజీ");
+            newsAreaCategoryModel.setCheck(false);
+            newsAreaCategoryModelList.add(newsAreaCategoryModel);
+            DropDownDialog dropDownDialog = new DropDownDialog();
+            dropDownDialog.setDropDownList(newsAreaCategoryModelList, this);
+            dropDownDialog.show(getSupportFragmentManager());
+        }
     }
 
     @Override
     public void onDismisDropDownDialog(String name) {
         mActivityMainBinding.dropdownName.setText(name);
+        for (int i = 0; i < newsAreaCategoryModelList.size(); i++) {
+            newsAreaCategoryModelList.get(i).setCheck(false);
+            if (newsAreaCategoryModelList.get(i).getName().equals(name)) {
+                newsAreaCategoryModelList.get(i).setCheck(true);
+            }
+        }
     }
 
     @Override
@@ -305,6 +347,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     private void loadFragment(Fragment fragment, String TAG) {
         lockDrawer();
+        FrameLayout fl = (FrameLayout) findViewById(R.id.clRootView);
+        fl.removeAllViews();
         getSupportFragmentManager()
                 .beginTransaction()
                 .disallowAddToBackStack()

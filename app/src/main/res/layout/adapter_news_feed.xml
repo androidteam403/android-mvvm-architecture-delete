@@ -1,77 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
 
         <variable
             name="model"
             type="com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.adapter.NewsFeedAdapter.NewsFeedModel" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen10dp"
-        android:layout_marginLeft="@dimen/dimen10dp"
-        android:layout_marginEnd="@dimen/dimen10dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:layout_width="@dimen/dimen50dp"
-                android:layout_height="@dimen/dimen50dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/jagan" />
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
             <TextView
+                android:id="@+id/text_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen10dp"
                 android:layout_marginLeft="@dimen/dimen10dp"
-                android:text="@{model.heading}"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="@dimen/dimen70dp"
-                android:layout_height="@dimen/dimen40dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/abn_side" />
+                android:layout_marginBottom="@dimen/dimen10dp"
+                android:text="@string/label_news"
+                android:textAllCaps="true"
+                android:textColor="#0e83c9"
+                android:textSize="@dimen/dimen20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/main_header"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginStart="@dimen/dimen10dp"
+                android:layout_marginLeft="@dimen/dimen10dp"
+                android:layout_marginEnd="@dimen/dimen10dp"
+                android:orientation="vertical"
+                android:visibility="@{model.isExpanded ? view.GONE:view.VISIBLE}">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="సమయం: "
-                    android:textColor="@color/black"
-                    tools:ignore="RelativeOverlap" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="@dimen/dimen50dp"
+                        android:layout_height="@dimen/dimen50dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/jagan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen10dp"
+                        android:layout_marginLeft="@dimen/dimen10dp"
+                        android:text="@{model.heading}"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{model.time}"
-                    android:textColor="@color/black"
-                    tools:ignore="RelativeOverlap" />
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen70dp"
+                        android:layout_height="@dimen/dimen40dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/abn_side" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        tools:ignore="RelativeOverlap">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_samayam"
+                            android:textColor="@color/black"
+                            tools:ignore="RelativeOverlap" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{model.time}"
+                            android:textColor="@color/black"
+                            tools:ignore="RelativeOverlap" />
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/news_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{model.isExpanded ? view.VISIBLE:view.GONE}">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen100dp"
+                    android:layout_marginTop="@dimen/dimen10dp"
+                    android:background="@drawable/bg_newsfeed_expanded_view" />
+
+                <ImageView
+                    android:id="@+id/close_expanded_view"
+                    android:layout_width="@dimen/dimen30dp"
+                    android:layout_height="@dimen/dimen30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="@dimen/dimen10dp"
+                    android:layout_marginRight="@dimen/dimen10dp"
+                    android:background="@drawable/bg_close_icon"
+                    android:contentDescription="@string/app_name"
+                    android:padding="@dimen/dimen5dp"
+                    android:src="@drawable/close_white_icon" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="18dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen10dp"
+                        android:layout_marginLeft="@dimen/dimen10dp"
+                        android:layout_marginTop="@dimen/dimen10dp"
+                        android:text="@{model.heading}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen20sp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="@dimen/dimen15dp"
+                        android:layout_marginTop="@dimen/dimen8dp"
+                        android:layout_marginEnd="@dimen/dimen15dp"
+                        android:elevation="@dimen/dimen10dp"
+                        app:cardCornerRadius="@dimen/dimen10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/app_name"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/jagan" />
+                    </androidx.cardview.widget.CardView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen10dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen70dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/abn_side" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            tools:ignore="RelativeOverlap">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/label_samayam"
+                                android:textColor="@color/black"
+                                tools:ignore="RelativeOverlap" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{model.time}"
+                                android:textColor="@color/black"
+                                tools:ignore="RelativeOverlap" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/news_detatial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen10dp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
 </layout>
