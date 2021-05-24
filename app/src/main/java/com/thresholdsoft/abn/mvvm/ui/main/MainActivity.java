@@ -50,6 +50,7 @@ import com.thresholdsoft.abn.mvvm.ui.about.AboutFragment;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
 import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
 import com.thresholdsoft.abn.mvvm.ui.main.dialog.RateUsDialog;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.EPaperFeedFragment;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedFragment;
 import com.thresholdsoft.abn.mvvm.utils.ScreenUtils;
 
@@ -142,11 +143,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         finish();
     }
 
-    @Override
-    public void onClickNews() {
-        Toast.makeText(this, "you clicked", Toast.LENGTH_SHORT).show();
-    }
-
     @SuppressLint("WrongConstant")
     @Override
     public void onClickNavigationMenu() {
@@ -204,6 +200,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         mNavigationView = mActivityMainBinding.navigationView;
 //        mCardsContainerView = mActivityMainBinding.cardsContainer;
 
+
         setSupportActionBar(mToolbar);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -235,8 +232,43 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 //        setupCardContainerView();
 //        subscribeToLiveData();
 
-
     }
+
+    @Override
+    public void onClickNews() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.news.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+        NewsFeedFragment newsFeedFragment = new NewsFeedFragment();
+        loadFragment(newsFeedFragment, NewsFeedFragment.TAG);
+    }
+
+    @Override
+    public void onClickEpapers() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.ePapers.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+        EPaperFeedFragment ePaperFeedFragment = new EPaperFeedFragment();
+        loadFragment(ePaperFeedFragment, EPaperFeedFragment.TAG);
+    }
+
+    @Override
+    public void onClickLiveTv() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.livetv.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+    }
+
+    @Override
+    public void onClickSpeedNews() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.speedNews.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+    }
+
+    private void bottomNavigationItemSelectionUnselectionHandling() {
+        mActivityMainBinding.news.setBackground(null);
+        mActivityMainBinding.ePapers.setBackground(null);
+        mActivityMainBinding.livetv.setBackground(null);
+        mActivityMainBinding.speedNews.setBackground(null);
+    }
+
 
     private void setupCardContainerView() {
         int screenWidth = ScreenUtils.getScreenWidth(this);
@@ -272,12 +304,22 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         mActivityMainBinding.navigationView.addHeaderView(navHeaderMainBinding.getRoot());
         navHeaderMainBinding.setViewModel(mViewModel);
 
+        mNavigationView.getMenu().getItem(0).setActionView(R.layout.menu_image);
+        mNavigationView.getMenu().getItem(1).setActionView(R.layout.menu_image);
+        mNavigationView.getMenu().getItem(2).setActionView(R.layout.menu_image);
+        mNavigationView.getMenu().getItem(3).setActionView(R.layout.menu_image);
+        mNavigationView.getMenu().getItem(4).setActionView(R.layout.menu_image);
+        mNavigationView.getMenu().getItem(5).setActionView(R.layout.menu_image);
+
+//        mNavigationView.getMenu().setGroupVisible(R.id.MainEditGroup, false);
+
+
         mNavigationView.setNavigationItemSelectedListener(
                 item -> {
                     mDrawer.closeDrawer(GravityCompat.START);
                     switch (item.getItemId()) {
                         case R.id.main_edit:
-//                            showAboutFragment();
+//                            mNavigationView.getMenu().setGroupVisible(R.id.MainEditGroup, true);
                             return true;
                         case R.id.andhra:
                             return true;

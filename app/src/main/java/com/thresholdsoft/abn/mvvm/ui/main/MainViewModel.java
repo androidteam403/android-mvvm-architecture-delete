@@ -159,6 +159,18 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
         getNavigator().onClickNews();
     }
 
+    public void onClickEpapers() {
+        getNavigator().onClickEpapers();
+    }
+
+    public void onClickLiveTv() {
+        getNavigator().onClickLiveTv();
+    }
+
+    public void onClickSpeedNews() {
+        getNavigator().onClickSpeedNews();
+    }
+
     public void onClickNavigationMenu() {
         getNavigator().onClickNavigationMenu();
     }

@@ -19,125 +19,125 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/bottomnav_gradient_blue_bg"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:weightSum="1">
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_alignParentBottom="true"-->
+        <!--            android:background="@drawable/bottomnav_gradient_blue_bg"-->
+        <!--            android:gravity="center_vertical"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingLeft="10dp"-->
+        <!--            android:paddingTop="10dp"-->
+        <!--            android:paddingRight="10dp"-->
+        <!--            android:weightSum="1">-->
 
-            <RelativeLayout
-                android:id="@+id/news"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:background="@drawable/bottomnav_itemselected_bg"
-                android:gravity="center"
-                android:onClick="@{()-> viewModel.onClickNews()}"
-                android:orientation="vertical">
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/news"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:background="@drawable/bottomnav_itemselected_bg"-->
+        <!--                android:gravity="center"-->
+        <!--                android:onClick="@{()-> viewModel.onClickNews()}"-->
+        <!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:id="@+id/paper_icon"
-                    android:layout_width="@dimen/dimen40dp"
-                    android:layout_height="@dimen/dimen40dp"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/papers" />
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/paper_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/paper_icon"
-                    android:layout_centerHorizontal="true"
-                    android:text="News"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-            </RelativeLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@+id/paper_icon"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:text="News"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
 
-            <RelativeLayout
-                android:id="@+id/e_papers"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:gravity="center"
-                android:orientation="vertical">
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/e_papers"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:gravity="center"-->
+        <!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:id="@+id/e_paper_icon"
-                    android:layout_width="@dimen/dimen40dp"
-                    android:layout_height="@dimen/dimen40dp"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/papers" />
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/e_paper_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/e_paper_icon"
-                    android:layout_centerHorizontal="true"
-                    android:text="E-Paers"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-            </RelativeLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@id/e_paper_icon"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:text="E-Paers"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
 
-            <RelativeLayout
-                android:id="@+id/livetv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:gravity="center"
-                android:orientation="vertical">
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/livetv"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:gravity="center"-->
+        <!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:id="@+id/live_tv_icon"
-                    android:layout_width="@dimen/dimen40dp"
-                    android:layout_height="@dimen/dimen40dp"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/papers" />
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/live_tv_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/live_tv_icon"
-                    android:text="LiveTv"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-            </RelativeLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@+id/live_tv_icon"-->
+        <!--                    android:text="LiveTv"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
 
-            <RelativeLayout
-                android:id="@+id/speed_news"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:gravity="center"
-                android:orientation="vertical">
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/speed_news"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:gravity="center"-->
+        <!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:id="@+id/speed_news_icon"
-                    android:layout_width="@dimen/dimen40dp"
-                    android:layout_height="@dimen/dimen40dp"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/papers" />
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/speed_news_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/speed_news_icon"
-                    android:layout_centerHorizontal="true"
-                    android:text="Speed News"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-            </RelativeLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@+id/speed_news_icon"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:text="Speed News"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
 
-        </LinearLayout>
+        <!--        </LinearLayout>-->
 
         <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/drawerView"
@@ -293,6 +293,133 @@
                     android:text="@{viewModel.appVersion}" />
             </com.google.android.material.navigation.NavigationView>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/bottomnav_gradient_blue_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:weightSum="1">
+
+                    <RelativeLayout
+                        android:id="@+id/news"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/bottomnav_itemselected_bg"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickNews()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/paper_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/papers" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/paper_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="News"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/e_papers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickEpapers()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/e_paper_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/papers" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/e_paper_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="E-Paers"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/livetv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickLiveTv()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/live_tv_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/papers" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/live_tv_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="LiveTv"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/speed_news"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickSpeedNews()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/speed_news_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/papers" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/speed_news_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="Speed News"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
         </androidx.drawerlayout.widget.DrawerLayout>
 
 
