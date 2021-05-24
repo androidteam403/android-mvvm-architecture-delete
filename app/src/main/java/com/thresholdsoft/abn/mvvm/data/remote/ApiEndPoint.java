@@ -17,7 +17,9 @@
 package com.thresholdsoft.abn.mvvm.data.remote;
 
 
-import com.mindorks.framework.mvvm.BuildConfig;
+//import com.mindorks.framework.mvvm.BuildConfig;
+
+import com.thresholdsoft.abn.BuildConfig;
 
 /**
  * Created by amitshekhar on 07/07/17.

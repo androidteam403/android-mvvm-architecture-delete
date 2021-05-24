@@ -20,12 +20,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import androidx.core.content.ContextCompat;
-import com.mindorks.framework.mvvm.R;
 
-/**
- * Created by amitshekhar on 07/07/17.
- */
+import androidx.core.content.ContextCompat;
+
+import com.thresholdsoft.abn.R;
 
 public final class ViewUtils {
 

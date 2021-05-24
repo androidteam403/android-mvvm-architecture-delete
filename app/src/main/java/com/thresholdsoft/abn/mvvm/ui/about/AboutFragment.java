@@ -20,9 +20,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.mindorks.framework.mvvm.BR;
-import com.mindorks.framework.mvvm.R;
-import com.mindorks.framework.mvvm.databinding.FragmentAboutBinding;
+import com.thresholdsoft.abn.BR;
+import com.thresholdsoft.abn.R;
+import com.thresholdsoft.abn.databinding.FragmentAboutBinding;
 import com.thresholdsoft.abn.mvvm.di.component.FragmentComponent;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseFragment;
 

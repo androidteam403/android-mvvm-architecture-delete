@@ -16,13 +16,14 @@
 
 package com.thresholdsoft.abn.mvvm.ui.main;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import android.text.TextUtils;
+import android.util.Log;
+
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableList;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.thresholdsoft.abn.mvvm.data.DataManager;
 import com.thresholdsoft.abn.mvvm.data.model.others.QuestionCardData;
@@ -151,5 +152,18 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
 
     public void updateAppVersion(String version) {
         appVersion.set(version);
+    }
+
+    //
+    public void onClickNews() {
+        getNavigator().onClickNews();
+    }
+
+    public void onClickNavigationMenu() {
+        getNavigator().onClickNavigationMenu();
+    }
+
+    public void onClickDropDown() {
+        getNavigator().onClickDropDown();
     }
 }

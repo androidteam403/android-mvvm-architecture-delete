@@ -25,9 +25,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.mindorks.framework.mvvm.BR;
-import com.mindorks.framework.mvvm.R;
-import com.mindorks.framework.mvvm.databinding.FragmentOpenSourceBinding;
+import com.thresholdsoft.abn.BR;
+import com.thresholdsoft.abn.R;
+import com.thresholdsoft.abn.databinding.FragmentOpenSourceBinding;
 import com.thresholdsoft.abn.mvvm.di.component.FragmentComponent;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseFragment;
 

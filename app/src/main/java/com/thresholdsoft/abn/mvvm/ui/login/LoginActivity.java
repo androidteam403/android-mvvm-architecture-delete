@@ -21,9 +21,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.mindorks.framework.mvvm.BR;
-import com.mindorks.framework.mvvm.R;
-import com.mindorks.framework.mvvm.databinding.ActivityLoginBinding;
+import com.thresholdsoft.abn.BR;
+import com.thresholdsoft.abn.R;
+import com.thresholdsoft.abn.databinding.ActivityLoginBinding;
 import com.thresholdsoft.abn.mvvm.di.component.ActivityComponent;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
 import com.thresholdsoft.abn.mvvm.ui.main.MainActivity;

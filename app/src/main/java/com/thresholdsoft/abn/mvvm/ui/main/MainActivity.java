@@ -16,15 +16,18 @@
 
 package com.thresholdsoft.abn.mvvm.ui.main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
@@ -35,20 +38,23 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mindorks.framework.mvvm.BR;
-import com.mindorks.framework.mvvm.BuildConfig;
-import com.mindorks.framework.mvvm.R;
-import com.mindorks.framework.mvvm.databinding.ActivityMainBinding;
-import com.mindorks.framework.mvvm.databinding.NavHeaderMainBinding;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
+import com.thresholdsoft.abn.BR;
+import com.thresholdsoft.abn.BuildConfig;
+import com.thresholdsoft.abn.R;
+import com.thresholdsoft.abn.databinding.ActivityMainBinding;
+import com.thresholdsoft.abn.databinding.NavHeaderMainBinding;
 import com.thresholdsoft.abn.mvvm.di.component.ActivityComponent;
 import com.thresholdsoft.abn.mvvm.ui.about.AboutFragment;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
-import com.thresholdsoft.abn.mvvm.ui.feed.FeedActivity;
 import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
-import com.thresholdsoft.abn.mvvm.ui.main.rating.RateUsDialog;
+import com.thresholdsoft.abn.mvvm.ui.main.dialog.RateUsDialog;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedFragment;
 import com.thresholdsoft.abn.mvvm.utils.ScreenUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> implements MainNavigator {
 
@@ -116,24 +122,53 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         if (drawable instanceof Animatable) {
             ((Animatable) drawable).start();
         }
-        switch (item.getItemId()) {
-            case R.id.action_cut:
-                return true;
-            case R.id.action_copy:
-                return true;
-            case R.id.action_share:
-                return true;
-            case R.id.action_delete:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+//        switch (item.getItemId()) {
+//            case R.id.action_cut:
+//                return true;
+//            case R.id.action_copy:
+//                return true;
+//            case R.id.action_share:
+//                return true;
+//            case R.id.action_delete:
+//                return true;
+//            default:
+        return super.onOptionsItemSelected(item);
+//        }
     }
 
     @Override
     public void openLoginActivity() {
         startActivity(LoginActivity.newIntent(this));
         finish();
+    }
+
+    @Override
+    public void onClickNews() {
+        Toast.makeText(this, "you clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @SuppressLint("WrongConstant")
+    @Override
+    public void onClickNavigationMenu() {
+        mDrawer.openDrawer(Gravity.START);
+    }
+
+    @Override
+    public void onClickDropDown() {
+//        RateUsDialog.newInstance().show(getSupportFragmentManager());
+        List<String> dropDownList = new ArrayList<>();
+        dropDownList.add("తెలంగాణ");
+        dropDownList.add("ఆంధ్రప్రదేశ్");
+        dropDownList.add("జాతీయం");
+        dropDownList.add("టెక్నాలజీ");
+        RateUsDialog dropDownDialog = new RateUsDialog();
+        dropDownDialog.setDropDownList(dropDownList, this);
+        dropDownDialog.show(getSupportFragmentManager());
+    }
+
+    @Override
+    public void onDismisDropDownDialog(String name) {
+        mActivityMainBinding.dropdownName.setText(name);
     }
 
     @Override
@@ -165,9 +200,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     private void setUp() {
         mDrawer = mActivityMainBinding.drawerView;
-        mToolbar = mActivityMainBinding.toolbar;
+//        mToolbar = mActivityMainBinding.toolbar;
         mNavigationView = mActivityMainBinding.navigationView;
-        mCardsContainerView = mActivityMainBinding.cardsContainer;
+//        mCardsContainerView = mActivityMainBinding.cardsContainer;
 
         setSupportActionBar(mToolbar);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(
@@ -193,8 +228,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         String version = getString(R.string.version) + " " + BuildConfig.VERSION_NAME;
         mViewModel.updateAppVersion(version);
         mViewModel.onNavMenuCreated();
-        setupCardContainerView();
-        subscribeToLiveData();
+
+        NewsFeedFragment newsFeedFragment = new NewsFeedFragment();
+        loadFragment(newsFeedFragment, NewsFeedFragment.TAG);
+
+//        setupCardContainerView();
+//        subscribeToLiveData();
+
+
     }
 
     private void setupCardContainerView() {
@@ -236,34 +277,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                     mDrawer.closeDrawer(GravityCompat.START);
                     switch (item.getItemId()) {
                         case R.id.main_edit:
-                            showAboutFragment();
+//                            showAboutFragment();
                             return true;
                         case R.id.andhra:
-                            RateUsDialog.newInstance().show(getSupportFragmentManager());
                             return true;
                         case R.id.telengana:
-                            startActivity(FeedActivity.newIntent(MainActivity.this));
                             return true;
                         case R.id.karnataka:
-                            mViewModel.logout();
                             return true;
                         case R.id.tamil_nadu:
-                            mViewModel.logout();
                             return true;
                         case R.id.magazines:
-                            mViewModel.logout();
                             return true;
                         case R.id.about_us:
-                            mViewModel.logout();
                             return true;
                         case R.id.contact_us:
-                            mViewModel.logout();
                             return true;
                         case R.id.privacy_policy:
-                            mViewModel.logout();
                             return true;
                         case R.id.terma_conditions:
-                            mViewModel.logout();
                             return true;
                         default:
                             return false;
@@ -271,13 +303,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 });
     }
 
-    private void showAboutFragment() {
+    private void loadFragment(Fragment fragment, String TAG) {
         lockDrawer();
         getSupportFragmentManager()
                 .beginTransaction()
                 .disallowAddToBackStack()
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                .add(R.id.clRootView, AboutFragment.newInstance(), AboutFragment.TAG)
+                .add(R.id.clRootView, fragment, TAG)
                 .commit();
     }
 

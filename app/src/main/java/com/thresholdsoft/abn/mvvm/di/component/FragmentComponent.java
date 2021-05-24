@@ -1,10 +1,11 @@
 package com.thresholdsoft.abn.mvvm.di.component;
 
 import com.thresholdsoft.abn.mvvm.di.module.FragmentModule;
+import com.thresholdsoft.abn.mvvm.di.scope.FragmentScope;
 import com.thresholdsoft.abn.mvvm.ui.about.AboutFragment;
 import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogFragment;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceFragment;
-import com.thresholdsoft.abn.mvvm.di.scope.FragmentScope;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedFragment;
 
 import dagger.Component;
 
@@ -20,4 +21,6 @@ public interface FragmentComponent {
     void inject(OpenSourceFragment fragment);
 
     void inject(AboutFragment fragment);
+
+    void inject(NewsFeedFragment newsFeedFragment);
 }

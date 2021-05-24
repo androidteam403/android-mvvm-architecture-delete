@@ -1,35 +1,17 @@
-/*
- *  Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      https://mindorks.com/license/apache-v2
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License
- */
 
 package com.thresholdsoft.abn.mvvm.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
-import com.mindorks.framework.mvvm.BR;
-import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
-import com.mindorks.framework.mvvm.R;
-import com.mindorks.framework.mvvm.databinding.ActivitySplashBinding;
+import com.thresholdsoft.abn.BR;
+import com.thresholdsoft.abn.R;
+import com.thresholdsoft.abn.databinding.ActivitySplashBinding;
 import com.thresholdsoft.abn.mvvm.di.component.ActivityComponent;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
 import com.thresholdsoft.abn.mvvm.ui.main.MainActivity;
 
-/**
- * Created by amitshekhar on 08/07/17.
- */
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> implements SplashNavigator {
 
@@ -44,24 +26,16 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
     }
 
     @Override
-    public void openLoginActivity() {
-        Intent intent = LoginActivity.newIntent(SplashActivity.this);
-        startActivity(intent);
-        finish();
-    }
-
-    @Override
-    public void openMainActivity() {
-        Intent intent = MainActivity.newIntent(SplashActivity.this);
-        startActivity(intent);
-        finish();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewModel.setNavigator(this);
-        mViewModel.startSeeding();
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            Intent intent = MainActivity.newIntent(SplashActivity.this);
+            startActivity(intent);
+            finish();
+        }, 2000);
+//        mViewModel.startSeeding();
     }
 
     @Override

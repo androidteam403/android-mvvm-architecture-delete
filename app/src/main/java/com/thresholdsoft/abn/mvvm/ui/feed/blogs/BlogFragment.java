@@ -24,10 +24,10 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.mindorks.framework.mvvm.BR;
-import com.mindorks.framework.mvvm.R;
+import com.thresholdsoft.abn.BR;
+import com.thresholdsoft.abn.R;
+import com.thresholdsoft.abn.databinding.FragmentBlogBinding;
 import com.thresholdsoft.abn.mvvm.data.model.api.BlogResponse;
-import com.mindorks.framework.mvvm.databinding.FragmentBlogBinding;
 import com.thresholdsoft.abn.mvvm.di.component.FragmentComponent;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseFragment;
 

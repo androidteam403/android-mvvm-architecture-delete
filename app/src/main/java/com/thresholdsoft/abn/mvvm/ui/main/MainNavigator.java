@@ -25,4 +25,12 @@ public interface MainNavigator {
     void handleError(Throwable throwable);
 
     void openLoginActivity();
+
+    void onClickNews();
+
+    void onClickNavigationMenu();
+
+    void onClickDropDown();
+
+    void onDismisDropDownDialog(String name);
 }

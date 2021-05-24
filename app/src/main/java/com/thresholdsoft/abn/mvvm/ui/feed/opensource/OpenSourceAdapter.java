@@ -22,8 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.mindorks.framework.mvvm.databinding.ItemOpenSourceEmptyViewBinding;
-import com.mindorks.framework.mvvm.databinding.ItemOpenSourceViewBinding;
+
+import com.thresholdsoft.abn.databinding.ItemOpenSourceEmptyViewBinding;
+import com.thresholdsoft.abn.databinding.ItemOpenSourceViewBinding;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseViewHolder;
 import com.thresholdsoft.abn.mvvm.utils.AppLogger;
 

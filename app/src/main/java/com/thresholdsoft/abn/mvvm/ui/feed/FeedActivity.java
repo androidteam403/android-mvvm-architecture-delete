@@ -25,9 +25,9 @@ import androidx.core.app.NavUtils;
 import androidx.core.app.TaskStackBuilder;
 
 import com.google.android.material.tabs.TabLayout;
-import com.mindorks.framework.mvvm.BR;
-import com.mindorks.framework.mvvm.R;
-import com.mindorks.framework.mvvm.databinding.ActivityFeedBinding;
+import com.thresholdsoft.abn.BR;
+import com.thresholdsoft.abn.R;
+import com.thresholdsoft.abn.databinding.ActivityFeedBinding;
 import com.thresholdsoft.abn.mvvm.di.component.ActivityComponent;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
 

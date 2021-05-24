@@ -25,7 +25,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.mindorks.framework.mvvm.R;
+import com.thresholdsoft.abn.R;
 import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
 
 import org.junit.Rule;

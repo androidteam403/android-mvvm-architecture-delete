@@ -14,13 +14,27 @@
  *  limitations under the License
  */
 
-package com.thresholdsoft.abn.mvvm.ui.main.rating;
+package com.thresholdsoft.abn.mvvm.ui.main.dialog;
+
+import com.thresholdsoft.abn.mvvm.data.DataManager;
+import com.thresholdsoft.abn.mvvm.ui.base.BaseViewModel;
+import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
 
 /**
  * Created by amitshekhar on 10/07/17.
  */
 
-public interface RateUsCallback {
+public class RateUsViewModel extends BaseViewModel<RateUsCallback> {
 
-    void dismissDialog();
+    public RateUsViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        super(dataManager, schedulerProvider);
+    }
+
+    public void onLaterClick() {
+        getNavigator().dismissDialog();
+    }
+
+    public void onSubmitClick() {
+        getNavigator().dismissDialog();
+    }
 }

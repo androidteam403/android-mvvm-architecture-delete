@@ -12,6 +12,7 @@ import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogViewModel;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceAdapter;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceViewModel;
 import com.thresholdsoft.abn.mvvm.ViewModelProviderFactory;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedViewModel;
 import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
 
 import java.util.ArrayList;
@@ -67,5 +68,11 @@ public class FragmentModule {
         Supplier<OpenSourceViewModel> supplier = () -> new OpenSourceViewModel(dataManager, schedulerProvider);
         ViewModelProviderFactory<OpenSourceViewModel> factory = new ViewModelProviderFactory<>(OpenSourceViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(OpenSourceViewModel.class);
+    }
+    @Provides
+    NewsFeedViewModel provideNewsFeedViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        Supplier<NewsFeedViewModel> supplier = () -> new NewsFeedViewModel(dataManager, schedulerProvider);
+        ViewModelProviderFactory<NewsFeedViewModel> factory = new ViewModelProviderFactory<>(NewsFeedViewModel.class, supplier);
+        return new ViewModelProvider(fragment, factory).get(NewsFeedViewModel.class);
     }
 }

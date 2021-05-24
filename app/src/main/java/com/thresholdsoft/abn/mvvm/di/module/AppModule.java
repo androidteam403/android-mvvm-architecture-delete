@@ -17,11 +17,14 @@
 package com.thresholdsoft.abn.mvvm.di.module;
 
 import android.app.Application;
-import androidx.room.Room;
 import android.content.Context;
+
+import androidx.room.Room;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mindorks.framework.mvvm.BuildConfig;
+import com.thresholdsoft.abn.BuildConfig;
+import com.thresholdsoft.abn.R;
 import com.thresholdsoft.abn.mvvm.data.AppDataManager;
 import com.thresholdsoft.abn.mvvm.data.DataManager;
 import com.thresholdsoft.abn.mvvm.data.local.db.AppDatabase;
@@ -29,7 +32,6 @@ import com.thresholdsoft.abn.mvvm.data.local.db.AppDbHelper;
 import com.thresholdsoft.abn.mvvm.data.local.db.DbHelper;
 import com.thresholdsoft.abn.mvvm.data.local.prefs.AppPreferencesHelper;
 import com.thresholdsoft.abn.mvvm.data.local.prefs.PreferencesHelper;
-import com.mindorks.framework.mvvm.R;
 import com.thresholdsoft.abn.mvvm.data.remote.ApiHeader;
 import com.thresholdsoft.abn.mvvm.data.remote.ApiHelper;
 import com.thresholdsoft.abn.mvvm.data.remote.AppApiHelper;
@@ -40,9 +42,10 @@ import com.thresholdsoft.abn.mvvm.utils.AppConstants;
 import com.thresholdsoft.abn.mvvm.utils.rx.AppSchedulerProvider;
 import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
-import javax.inject.Singleton;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**

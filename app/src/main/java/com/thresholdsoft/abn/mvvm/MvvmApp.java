@@ -20,7 +20,7 @@ import android.app.Application;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor;
-import com.mindorks.framework.mvvm.BuildConfig;
+import com.thresholdsoft.abn.BuildConfig;
 import com.thresholdsoft.abn.mvvm.di.component.AppComponent;
 import com.thresholdsoft.abn.mvvm.di.component.DaggerAppComponent;
 import com.thresholdsoft.abn.mvvm.utils.AppLogger;

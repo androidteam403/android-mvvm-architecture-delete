@@ -16,7 +16,7 @@
 
 package com.thresholdsoft.abn.mvvm.utils;
 
-import com.mindorks.framework.mvvm.BuildConfig;
+import com.thresholdsoft.abn.BuildConfig;
 
 import timber.log.Timber;
 

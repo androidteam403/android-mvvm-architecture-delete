@@ -1,11 +1,11 @@
 package com.thresholdsoft.abn.mvvm.di.component;
 
+import com.thresholdsoft.abn.mvvm.di.module.ActivityModule;
+import com.thresholdsoft.abn.mvvm.di.scope.ActivityScope;
 import com.thresholdsoft.abn.mvvm.ui.feed.FeedActivity;
 import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
 import com.thresholdsoft.abn.mvvm.ui.main.MainActivity;
 import com.thresholdsoft.abn.mvvm.ui.splash.SplashActivity;
-import com.thresholdsoft.abn.mvvm.di.module.ActivityModule;
-import com.thresholdsoft.abn.mvvm.di.scope.ActivityScope;
 
 import dagger.Component;
 

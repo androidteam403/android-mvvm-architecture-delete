@@ -21,9 +21,10 @@ import android.net.Uri;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import com.thresholdsoft.abn.databinding.ItemBlogEmptyViewBinding;
+import com.thresholdsoft.abn.databinding.ItemBlogViewBinding;
 import com.thresholdsoft.abn.mvvm.data.model.api.BlogResponse;
-import com.mindorks.framework.mvvm.databinding.ItemBlogEmptyViewBinding;
-import com.mindorks.framework.mvvm.databinding.ItemBlogViewBinding;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseViewHolder;
 import com.thresholdsoft.abn.mvvm.utils.AppLogger;
 

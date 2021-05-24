@@ -19,11 +19,9 @@ package com.thresholdsoft.abn.mvvm.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import com.mindorks.framework.mvvm.R;
 
-/**
- * Created by amitshekhar on 07/07/17.
- */
+import com.thresholdsoft.abn.R;
+
 
 public final class AppUtils {
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.thresholdsoft.abn.mvvm.data.DataManager;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseDialog;
-import com.thresholdsoft.abn.mvvm.ui.main.rating.RateUsViewModel;
+import com.thresholdsoft.abn.mvvm.ui.main.dialog.RateUsViewModel;
 import com.thresholdsoft.abn.mvvm.ViewModelProviderFactory;
 import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
 

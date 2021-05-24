@@ -1,7 +1,7 @@
 package com.thresholdsoft.abn.mvvm.di.component;
 
 import com.thresholdsoft.abn.mvvm.di.module.DialogModule;
-import com.thresholdsoft.abn.mvvm.ui.main.rating.RateUsDialog;
+import com.thresholdsoft.abn.mvvm.ui.main.dialog.RateUsDialog;
 import com.thresholdsoft.abn.mvvm.di.scope.DialogScope;
 
 import dagger.Component;
