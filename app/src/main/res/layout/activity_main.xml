@@ -379,14 +379,14 @@
                             android:layout_height="@dimen/dimen40dp"
                             android:layout_centerHorizontal="true"
                             android:contentDescription="@string/app_name"
-                            android:src="@drawable/papers" />
+                            android:src="@drawable/abn_logo" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/live_tv_icon"
                             android:layout_centerHorizontal="true"
-                            android:text="LiveTv"
+                            android:text="@string/label_livetv"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
                     </RelativeLayout>
