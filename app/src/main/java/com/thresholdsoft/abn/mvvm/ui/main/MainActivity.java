@@ -35,6 +35,8 @@ import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
 import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
 import com.thresholdsoft.abn.mvvm.ui.main.dialog.DropDownDialog;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.model.NewsAreaCategoryModel;
+import com.thresholdsoft.abn.mvvm.ui.main.dialog.RateUsDialog;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.EPaperFeedFragment;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedFragment;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.speednews.SpeedNewsFragment;
 import com.thresholdsoft.abn.mvvm.utils.ScreenUtils;
@@ -134,12 +136,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         mActivityMainBinding.news.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
         NewsFeedFragment newsFeedFragment = new NewsFeedFragment();
         loadFragment(newsFeedFragment, NewsFeedFragment.TAG);
-    }
-
-    @Override
-    public void onClickEpapers() {
-        bottomNavigationItemSelectionUnselectionHandling();
-        mActivityMainBinding.ePapers.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
     }
 
     @Override
@@ -246,6 +242,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         mNavigationView = mActivityMainBinding.navigationView;
 //        mCardsContainerView = mActivityMainBinding.cardsContainer;
 
+
         setSupportActionBar(mToolbar);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -277,93 +274,130 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 //        setupCardContainerView();
 //        subscribeToLiveData();
 
-
     }
 
-    private void setupCardContainerView() {
-        int screenWidth = ScreenUtils.getScreenWidth(this);
-        int screenHeight = ScreenUtils.getScreenHeight(this);
+    @Override
+    public void onClickNews() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.news.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+        NewsFeedFragment newsFeedFragment = new NewsFeedFragment();
+        loadFragment(newsFeedFragment, NewsFeedFragment.TAG);
+    }
 
-        mCardsContainerView.getBuilder()
-                .setDisplayViewCount(3)
-                .setHeightSwipeDistFactor(10)
-                .setWidthSwipeDistFactor(5)
-                .setSwipeDecor(new SwipeDecor()
-                        .setViewWidth((int) (0.90 * screenWidth))
-                        .setViewHeight((int) (0.75 * screenHeight))
-                        .setPaddingTop(20)
-                        .setSwipeRotationAngle(10)
-                        .setRelativeScale(0.01f));
+    @Override
+    public void onClickEpapers() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.ePapers.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+        EPaperFeedFragment ePaperFeedFragment = new EPaperFeedFragment();
+        loadFragment(ePaperFeedFragment, EPaperFeedFragment.TAG);
+    }
+    @Override
+    public void onClickSpeedNews() {
+        bottomNavigationItemSelectionUnselectionHandling();
+        mActivityMainBinding.speedNews.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
 
-        mCardsContainerView.addItemRemoveListener(count -> {
-            if (count == 0) {
-                // reload the contents again after 1 sec delay
-                new Handler(getMainLooper()).postDelayed(() -> {
-                    //Reload once all the cards are removed
-                    mViewModel.loadQuestionCards();
-                }, 800);
-            } else {
-                mViewModel.removeQuestionCard();
+        private void bottomNavigationItemSelectionUnselectionHandling () {
+            mActivityMainBinding.news.setBackground(null);
+            mActivityMainBinding.ePapers.setBackground(null);
+            mActivityMainBinding.livetv.setBackground(null);
+            mActivityMainBinding.speedNews.setBackground(null);
+        }
+
+
+        private void setupCardContainerView () {
+            int screenWidth = ScreenUtils.getScreenWidth(this);
+            int screenHeight = ScreenUtils.getScreenHeight(this);
+
+            mCardsContainerView.getBuilder()
+                    .setDisplayViewCount(3)
+                    .setHeightSwipeDistFactor(10)
+                    .setWidthSwipeDistFactor(5)
+                    .setSwipeDecor(new SwipeDecor()
+                            .setViewWidth((int) (0.90 * screenWidth))
+                            .setViewHeight((int) (0.75 * screenHeight))
+                            .setPaddingTop(20)
+                            .setSwipeRotationAngle(10)
+                            .setRelativeScale(0.01f));
+
+            mCardsContainerView.addItemRemoveListener(count -> {
+                if (count == 0) {
+                    // reload the contents again after 1 sec delay
+                    new Handler(getMainLooper()).postDelayed(() -> {
+                        //Reload once all the cards are removed
+                        mViewModel.loadQuestionCards();
+                    }, 800);
+                } else {
+                    mViewModel.removeQuestionCard();
+                }
+            });
+        }
+
+        private void setupNavMenu () {
+            NavHeaderMainBinding navHeaderMainBinding = DataBindingUtil.inflate(getLayoutInflater(),
+                    R.layout.nav_header_main, mActivityMainBinding.navigationView, false);
+            mActivityMainBinding.navigationView.addHeaderView(navHeaderMainBinding.getRoot());
+            navHeaderMainBinding.setViewModel(mViewModel);
+
+            mNavigationView.getMenu().getItem(0).setActionView(R.layout.menu_image);
+            mNavigationView.getMenu().getItem(1).setActionView(R.layout.menu_image);
+            mNavigationView.getMenu().getItem(2).setActionView(R.layout.menu_image);
+            mNavigationView.getMenu().getItem(3).setActionView(R.layout.menu_image);
+            mNavigationView.getMenu().getItem(4).setActionView(R.layout.menu_image);
+            mNavigationView.getMenu().getItem(5).setActionView(R.layout.menu_image);
+
+//        mNavigationView.getMenu().setGroupVisible(R.id.MainEditGroup, false);
+
+
+            mNavigationView.setNavigationItemSelectedListener(
+                    item -> {
+                        mDrawer.closeDrawer(GravityCompat.START);
+                        switch (item.getItemId()) {
+                            case R.id.main_edit:
+//                            mNavigationView.getMenu().setGroupVisible(R.id.MainEditGroup, true);
+                                return true;
+                            case R.id.andhra:
+                                return true;
+                            case R.id.telengana:
+                                return true;
+                            case R.id.karnataka:
+                                return true;
+                            case R.id.tamil_nadu:
+                                return true;
+                            case R.id.magazines:
+                                return true;
+                            case R.id.about_us:
+                                return true;
+                            case R.id.contact_us:
+                                return true;
+                            case R.id.privacy_policy:
+                                return true;
+                            case R.id.terma_conditions:
+                                return true;
+                            default:
+                                return false;
+                        }
+                    });
+        }
+
+        private void loadFragment (Fragment fragment, String TAG){
+            lockDrawer();
+            FrameLayout fl = (FrameLayout) findViewById(R.id.clRootView);
+            fl.removeAllViews();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .disallowAddToBackStack()
+                    .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                    .add(R.id.clRootView, fragment, TAG)
+                    .commit();
+        }
+
+        private void subscribeToLiveData () {
+            mViewModel.getQuestionCardData().observe(this, questionCardDatas -> mViewModel.setQuestionDataList(questionCardDatas));
+        }
+
+        private void unlockDrawer () {
+            if (mDrawer != null) {
+                mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             }
-        });
-    }
-
-    private void setupNavMenu() {
-        NavHeaderMainBinding navHeaderMainBinding = DataBindingUtil.inflate(getLayoutInflater(),
-                R.layout.nav_header_main, mActivityMainBinding.navigationView, false);
-        mActivityMainBinding.navigationView.addHeaderView(navHeaderMainBinding.getRoot());
-        navHeaderMainBinding.setViewModel(mViewModel);
-
-        mNavigationView.setNavigationItemSelectedListener(
-                item -> {
-                    mDrawer.closeDrawer(GravityCompat.START);
-                    switch (item.getItemId()) {
-                        case R.id.main_edit:
-//                            showAboutFragment();
-                            return true;
-                        case R.id.andhra:
-                            return true;
-                        case R.id.telengana:
-                            return true;
-                        case R.id.karnataka:
-                            return true;
-                        case R.id.tamil_nadu:
-                            return true;
-                        case R.id.magazines:
-                            return true;
-                        case R.id.about_us:
-                            return true;
-                        case R.id.contact_us:
-                            return true;
-                        case R.id.privacy_policy:
-                            return true;
-                        case R.id.terma_conditions:
-                            return true;
-                        default:
-                            return false;
-                    }
-                });
-    }
-
-    private void loadFragment(Fragment fragment, String TAG) {
-        lockDrawer();
-        FrameLayout fl = (FrameLayout) findViewById(R.id.clRootView);
-        fl.removeAllViews();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .disallowAddToBackStack()
-                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                .add(R.id.clRootView, fragment, TAG)
-                .commit();
-    }
-
-    private void subscribeToLiveData() {
-        mViewModel.getQuestionCardData().observe(this, questionCardDatas -> mViewModel.setQuestionDataList(questionCardDatas));
-    }
-
-    private void unlockDrawer() {
-        if (mDrawer != null) {
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         }
     }
-}

@@ -37,4 +37,6 @@
     <color name="blue">#4465c6</color>
     <color name="lebel_red">#DC143C</color>
     <color name="red">#FF0000</color>
+
+    <color name="maroon">#800000</color>
 </resources>

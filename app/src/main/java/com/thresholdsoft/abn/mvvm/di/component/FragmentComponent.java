@@ -5,6 +5,7 @@ import com.thresholdsoft.abn.mvvm.di.scope.FragmentScope;
 import com.thresholdsoft.abn.mvvm.ui.about.AboutFragment;
 import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogFragment;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceFragment;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.EPaperFeedFragment;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedFragment;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.speednews.SpeedNewsFragment;
 
@@ -26,4 +27,6 @@ public interface FragmentComponent {
     void inject(NewsFeedFragment newsFeedFragment);
 
     void inject(SpeedNewsFragment speedNewsFragment);
+
+    void inject(EPaperFeedFragment ePaperFeedFragment);
 }

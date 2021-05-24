@@ -13,12 +13,26 @@
   ~ limitations under the License
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group>
         <item
             android:id="@+id/main_edit"
             android:checked="true"
             android:title="MainEdition" />
+<!--        <group-->
+<!--            android:checkableBehavior="none"-->
+<!--            android:id="@+id/MainEditGroup">-->
+<!--            <item-->
+<!--                android:id="@+id/setupOutdoor"-->
+<!--                android:title="Outdoor" />-->
+<!--            <item-->
+<!--                android:id="@+id/setupClocks"-->
+<!--                android:title="Clocks" />-->
+<!--            <item-->
+<!--                android:id="@+id/selectMaps"-->
+<!--                android:title="Select map" />-->
+<!--        </group>-->
         <item
             android:id="@+id/andhra"
             android:checked="true"

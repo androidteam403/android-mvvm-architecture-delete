@@ -12,6 +12,8 @@ import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogAdapter;
 import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogViewModel;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceAdapter;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceViewModel;
+import com.thresholdsoft.abn.mvvm.ViewModelProviderFactory;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.EPaperFeedViewModel;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedViewModel;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.speednews.SpeedNewsViewModel;
 import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
@@ -83,5 +85,12 @@ public class FragmentModule {
         Supplier<SpeedNewsViewModel> supplier = () -> new SpeedNewsViewModel(dataManager, schedulerProvider);
         ViewModelProviderFactory<SpeedNewsViewModel> factory = new ViewModelProviderFactory<>(SpeedNewsViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(SpeedNewsViewModel.class);
+    }
+
+    @Provides
+    EPaperFeedViewModel provideEpaperFeedViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        Supplier<EPaperFeedViewModel> supplier = () -> new EPaperFeedViewModel(dataManager, schedulerProvider);
+        ViewModelProviderFactory<EPaperFeedViewModel> factory = new ViewModelProviderFactory<>(EPaperFeedViewModel.class, supplier);
+        return new ViewModelProvider(fragment, factory).get(EPaperFeedViewModel.class);
     }
 }
