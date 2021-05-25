@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.adapter.EpaperFeedAdapter.EPaperFeedModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen5dp"
+        android:padding="@dimen/dimen5dp">
+
+        <ImageView
+            android:id="@+id/ePaper_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+</layout>

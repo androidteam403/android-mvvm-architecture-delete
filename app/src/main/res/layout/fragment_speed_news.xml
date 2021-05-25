@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="డిమాండు లేక మురికి కాలువలో పాలను పారబోస్తున్న డెయిరీ రైతులు"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen10dp"
+            android:text="శ్రీనగర్: కరోనా లాక్‌డౌన్ ప్రజల జీవితాలను అతలాకుతలం చేస్తోంది. లాక్‌డౌన్ కారణంగా వ్యాపార సంస్థలు మూతపడడం, హోటళ్లు, రెస్టారెంట్లను మూసివేయడంతో పాలకు గిరాకీ దారుణంగా పడిపోయింది. ఫలితంగా కొనే దిక్కులేకపోవడంతో కశ్మీరీ పాడిరైతుల పరిస్థితి దారుణంగా తయారైంది. డిమాండ్ లేకపపోవడంతో వేలాది లీటర్ల పాలను డెయిరీ రైతులు మురికి కాలువల్లో పారబోస్తున్నారు. కశ్మీరులో అత్యధికంగా పాలు ఉత్పత్తి అయ్యే పుల్వామాలో పరిస్థితి మరింత దారుణంగా ఉంది. డిమాండ్ లేకపోవడంతో ఇక్కడి రైతులు పాల కేన్లను ట్రక్కుల్లోకి ఎక్కించి లాసిపొరాలోని పారిశ్రామికవాడకు తరలించి అక్కడి మురికి కాలువల్లో పారబోస్తున్నారు" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen5dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/drinage" />
+    </LinearLayout>
+</layout>
