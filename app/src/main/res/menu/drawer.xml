@@ -13,26 +13,33 @@
   ~ limitations under the License
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_edit"
+        android:checked="true"
+        android:title="MainEdition" />
+    <group
+        android:id="@+id/main_edition_group"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <menu>
+
+            <item
+                android:id="@+id/memberone"
+                android:title="Member one" />
+
+            <item
+                android:id="@+id/membertwo"
+                android:title="Member Two" />
+            <item
+                android:id="@+id/memberthree"
+                android:title="Member Three" />
+
+        </menu>
+
+    </group>
     <group>
-        <item
-            android:id="@+id/main_edit"
-            android:checked="true"
-            android:title="MainEdition" />
-<!--        <group-->
-<!--            android:checkableBehavior="none"-->
-<!--            android:id="@+id/MainEditGroup">-->
-<!--            <item-->
-<!--                android:id="@+id/setupOutdoor"-->
-<!--                android:title="Outdoor" />-->
-<!--            <item-->
-<!--                android:id="@+id/setupClocks"-->
-<!--                android:title="Clocks" />-->
-<!--            <item-->
-<!--                android:id="@+id/selectMaps"-->
-<!--                android:title="Select map" />-->
-<!--        </group>-->
+
         <item
             android:id="@+id/andhra"
             android:checked="true"
@@ -71,4 +78,5 @@
             android:checked="true"
             android:title="TERMS AND CONDITIONS" />
     </group>
+
 </menu>
