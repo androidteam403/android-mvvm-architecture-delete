@@ -17,11 +17,11 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="com.thresholdsoft.abn.mvvm.ui.splash.SplashActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
 
         <activity
@@ -32,11 +32,11 @@
             android:name="com.thresholdsoft.abn.mvvm.ui.main.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
-                        <intent-filter>
-                            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                            <category android:name="android.intent.category.LAUNCHER" />
-                        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -49,6 +49,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thresholdsoft.abn.mvvm.ui.main.MainActivity" />
         </activity>
+        <activity
+            android:name=".mvvm.ui.epaperdetails.EpaperDetailsActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

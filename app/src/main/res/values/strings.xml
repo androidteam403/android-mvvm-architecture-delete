@@ -70,4 +70,6 @@
     <string name="label_samayam">సమయం:</string>
     <string name="label_news">News</string>
     <string name="label_livetv">Live <font color='#9b2034'> TV</font></string>
+    <string name="label_pages">Pages</string>
+    <string name="label_page_clips">Page Clips</string>
 </resources>

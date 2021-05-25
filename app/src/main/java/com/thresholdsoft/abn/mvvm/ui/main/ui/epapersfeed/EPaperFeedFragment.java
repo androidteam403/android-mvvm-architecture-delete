@@ -15,6 +15,7 @@ import com.thresholdsoft.abn.R;
 import com.thresholdsoft.abn.databinding.FragmentEpaperFeedBinding;
 import com.thresholdsoft.abn.mvvm.di.component.FragmentComponent;
 import com.thresholdsoft.abn.mvvm.ui.base.BaseFragment;
+import com.thresholdsoft.abn.mvvm.ui.epaperdetails.EpaperDetailsActivity;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.adapter.EpaperFeedAdapter;
 
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ public class EPaperFeedFragment extends BaseFragment<FragmentEpaperFeedBinding, 
     }
 
     private void setUp() {
+        epaperFeedBinding.setIsMainEdition(true);
         List<EpaperFeedAdapter.EPaperFeedModel> ePaperFeedModelList = new ArrayList<>();
         EpaperFeedAdapter.EPaperFeedModel ePaperFeedModel = new EpaperFeedAdapter.EPaperFeedModel();
         ePaperFeedModel.setNewsPaperImage("https://d2na0fb6srbte6.cloudfront.net/read/imageapi/coverforissue/2169381/newspaper/300");
@@ -82,5 +84,10 @@ public class EPaperFeedFragment extends BaseFragment<FragmentEpaperFeedBinding, 
         epaperFeedBinding.epaperFeedRecyclerview.setLayoutManager(mLayoutManager1);
         epaperFeedBinding.epaperFeedRecyclerview.setItemAnimator(new DefaultItemAnimator());
         epaperFeedBinding.epaperFeedRecyclerview.setAdapter(epaperFeedAdapter);
+    }
+
+    @Override
+    public void onItemClickParer(List<EpaperFeedAdapter.EPaperFeedModel> ePaperFeedModelList) {
+        startActivity(EpaperDetailsActivity.newIntent(getContext(), ePaperFeedModelList));
     }
 }

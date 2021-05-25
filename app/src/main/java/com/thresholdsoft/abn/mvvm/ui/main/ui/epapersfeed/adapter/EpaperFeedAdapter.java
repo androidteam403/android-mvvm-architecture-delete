@@ -16,19 +16,20 @@ import com.bumptech.glide.Glide;
 import com.thresholdsoft.abn.R;
 import com.thresholdsoft.abn.databinding.AdapterEpaperfeedBinding;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.EPaperFeedNavigator;
-import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedNavigator;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class EpaperFeedAdapter extends RecyclerView.Adapter<EpaperFeedAdapter.ViewHolder> {
     private Context context;
     private List<EpaperFeedAdapter.EPaperFeedModel> ePaperFeedModelList;
-    private NewsFeedNavigator newsFeedNavigator;
+    //    private NewsFeedNavigator newsFeedNavigator;
+    private EPaperFeedNavigator mListener;
 
-    public EpaperFeedAdapter(Context context, List<EpaperFeedAdapter.EPaperFeedModel> ePaperFeedModelList, EPaperFeedNavigator ePaperFeedNavigator) {
+    public EpaperFeedAdapter(Context context, List<EpaperFeedAdapter.EPaperFeedModel> ePaperFeedModelList, EPaperFeedNavigator mListener) {
         this.context = context;
         this.ePaperFeedModelList = ePaperFeedModelList;
-        this.newsFeedNavigator = newsFeedNavigator;
+        this.mListener = mListener;
     }
 
     @NonNull
@@ -47,9 +48,9 @@ public class EpaperFeedAdapter extends RecyclerView.Adapter<EpaperFeedAdapter.Vi
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 //                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    Animation slideUp = AnimationUtils.loadAnimation(context, R.anim.zoom_in);
-                    holder.epaperfeedBinding.image.startAnimation(slideUp);
-                    // Do what you want
+                Animation slideUp = AnimationUtils.loadAnimation(context, R.anim.zoom_in);
+                holder.epaperfeedBinding.image.startAnimation(slideUp);
+                // Do what you want
 //                    return true;
 //                }
                 return false;
@@ -60,6 +61,11 @@ public class EpaperFeedAdapter extends RecyclerView.Adapter<EpaperFeedAdapter.Vi
                 .into(holder.epaperfeedBinding.image);
 
         holder.epaperfeedBinding.name.setText(ePaperFeedModel.getNewPapreName());
+        holder.itemView.setOnClickListener(view -> {
+            if (mListener != null) {
+                mListener.onItemClickParer(ePaperFeedModelList);
+            }
+        });
     }
 
     @Override
@@ -76,9 +82,10 @@ public class EpaperFeedAdapter extends RecyclerView.Adapter<EpaperFeedAdapter.Vi
         }
     }
 
-    public static class EPaperFeedModel {
+    public static class EPaperFeedModel implements Serializable {
         public String newsPaperImage;
         public String newPapreName;
+        public boolean isSelected;
 
         public String getNewsPaperImage() {
             return newsPaperImage;
@@ -94,6 +101,14 @@ public class EpaperFeedAdapter extends RecyclerView.Adapter<EpaperFeedAdapter.Vi
 
         public void setNewPapreName(String newPapreName) {
             this.newPapreName = newPapreName;
+        }
+
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean selected) {
+            isSelected = selected;
         }
     }
 }
