@@ -1,22 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~  Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
-  ~
-  ~  Licensed under the Apache License, Version 2.0 (the "License");
-  ~  you may not use this file except in compliance with the License.
-  ~  You may obtain a copy of the License at
-  ~
-  ~      https://mindorks.com/license/apache-v2
-  ~
-  ~  Unless required by applicable law or agreed to in writing, software
-  ~  distributed under the License is distributed on an "AS IS" BASIS,
-  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~  See the License for the specific language governing permissions and
-  ~  limitations under the License
-  -->
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mindorks.framework.mvvm.ui.main.MainActivity">
+    tools:context="com.mindorks.framework.mvvm.com.thresholdsoft.framework.mvvm.ui.main.MainActivity">
 
     <data>
 
@@ -24,24 +10,142 @@
 
         <variable
             name="viewModel"
-            type="com.mindorks.framework.mvvm.ui.main.MainViewModel" />
+            type="com.thresholdsoft.abn.mvvm.ui.main.MainViewModel" />
 
     </data>
 
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.drawerlayout.widget.DrawerLayout
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_alignParentBottom="true"-->
+        <!--            android:background="@drawable/bottomnav_gradient_blue_bg"-->
+        <!--            android:gravity="center_vertical"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingLeft="10dp"-->
+        <!--            android:paddingTop="10dp"-->
+        <!--            android:paddingRight="10dp"-->
+        <!--            android:weightSum="1">-->
 
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/news"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:background="@drawable/bottomnav_itemselected_bg"-->
+        <!--                android:gravity="center"-->
+        <!--                android:onClick="@{()-> viewModel.onClickNews()}"-->
+        <!--                android:orientation="vertical">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/paper_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@+id/paper_icon"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:text="News"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
+
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/e_papers"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:gravity="center"-->
+        <!--                android:orientation="vertical">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/e_paper_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@id/e_paper_icon"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:text="E-Paers"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
+
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/livetv"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:gravity="center"-->
+        <!--                android:orientation="vertical">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/live_tv_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@+id/live_tv_icon"-->
+        <!--                    android:text="LiveTv"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
+
+        <!--            <RelativeLayout-->
+        <!--                android:id="@+id/speed_news"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="0.25"-->
+        <!--                android:gravity="center"-->
+        <!--                android:orientation="vertical">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/speed_news_icon"-->
+        <!--                    android:layout_width="@dimen/dimen40dp"-->
+        <!--                    android:layout_height="@dimen/dimen40dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:contentDescription="@string/app_name"-->
+        <!--                    android:src="@drawable/papers" />-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@+id/speed_news_icon"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:text="Speed News"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="14sp" />-->
+        <!--            </RelativeLayout>-->
+
+        <!--        </LinearLayout>-->
+
+        <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/drawerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:id="@+id/clRootView"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipChildren="false">
@@ -49,38 +153,122 @@
                 <LinearLayout
                     android:id="@+id/activityMain"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.google.android.material.appbar.AppBarLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:elevation="5dp">
+                        android:layout_height="50dp"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/dimen5dp">
 
-                        <androidx.appcompat.widget.Toolbar
-                            android:id="@+id/toolbar"
-                            style="@style/Toolbar"
-                            app:subtitleTextColor="@color/white"
-                            app:title="@string/app_name"
-                            app:titleTextAppearance="@style/Toolbar.TitleText"
-                            app:titleTextColor="@color/white" />
+                        <RelativeLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start|center_vertical">
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/light_gray" />
+                            <ImageView
+                                android:id="@+id/navigation_menu"
+                                android:layout_width="30dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:contentDescription="@string/app_name"
+                                android:onClick="@{()-> viewModel.onClickNavigationMenu()}"
+                                android:src="@drawable/ic_navigation_menu" />
+                        </RelativeLayout>
 
-                    </com.google.android.material.appbar.AppBarLayout>
+                        <ImageView
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/abn_logo" />
 
-                    <com.mindorks.placeholderview.SwipePlaceHolderView
-                        android:id="@+id/cardsContainer"
+                        <LinearLayout
+                            android:layout_width="@dimen/dimen0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/app_name"
+                            android:gravity="center_vertical|end"
+                            android:orientation="horizontal"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/header_dropdown_bg"
+                                android:gravity="center_vertical"
+                                android:onClick="@{()-> viewModel.onClickDropDown()}"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/dimen10dp"
+                                android:paddingTop="@dimen/dimen5dp"
+                                android:paddingRight="@dimen/dimen10dp"
+                                android:paddingBottom="@dimen/dimen5dp">
+
+                                <TextView
+                                    android:id="@+id/dropdown_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="తెలంగాణ" />
+
+                                <ImageView
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/drop_down_arrow" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:action="@{viewModel.action}"
-                        app:adapter="@{viewModel.questionDataList}" />
+                        android:layout_height="1dp"
+                        android:background="#d1efef" />
+
+                    <!--                    <com.google.android.material.appbar.AppBarLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        app:elevation="5dp">-->
+
+                    <!--                        <androidx.appcompat.widget.Toolbar-->
+                    <!--                            android:id="@+id/toolbar"-->
+                    <!--                            style="@style/Toolbar"-->
+                    <!--                            app:subtitleTextColor="@color/white"-->
+                    <!--                            app:title="@string/app_name"-->
+                    <!--                            app:titleTextAppearance="@style/Toolbar.TitleText"-->
+                    <!--                            app:titleTextColor="@color/white" />-->
+
+                    <!--                        <View-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="1dp"-->
+                    <!--                            android:background="@color/light_gray" />-->
+
+                    <!--                    </com.google.android.material.appbar.AppBarLayout>-->
+
+                    <!--                    <com.mindorks.placeholderview.SwipePlaceHolderView-->
+                    <!--                        android:id="@+id/cardsContainer"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="match_parent"-->
+                    <!--                        app:action="@{viewModel.action}"-->
+                    <!--                        app:adapter="@{viewModel.questionDataList}" />-->
 
                 </LinearLayout>
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <FrameLayout
+                    android:id="@+id/clRootView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/activityMain"
+                    android:layout_marginTop="@dimen/dimen5dp"
+                    android:layout_marginBottom="@dimen/dimen70dp" />
+            </RelativeLayout>
 
             <com.google.android.material.navigation.NavigationView
                 android:id="@+id/navigationView"
@@ -88,11 +276,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:background="@color/white"
-                app:itemBackground="@color/white"
+                android:background="@color/blue"
+                app:itemBackground="@color/blue"
                 app:itemIconTint="@color/black_effective"
-                app:itemTextColor="@color/black_effective"
-                app:menu="@menu/drawer">
+                app:itemTextColor="@color/white">
+
 
                 <TextView
                     android:id="@+id/tvAppVersion"
@@ -102,18 +290,150 @@
                     android:layout_gravity="bottom|end"
                     android:padding="5dp"
                     android:text="@{viewModel.appVersion}" />
+
+
+
+
             </com.google.android.material.navigation.NavigationView>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/bottomnav_gradient_blue_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:weightSum="1">
+
+                    <RelativeLayout
+                        android:id="@+id/news"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/bottomnav_itemselected_bg"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickNews()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/paper_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/papers" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/paper_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="News"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/e_papers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickEpapers()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/e_paper_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/papers" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/e_paper_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="E-Paers"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/livetv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickLiveTv()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/live_tv_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/abn_logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/live_tv_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="@string/label_livetv"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/speed_news"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onClickSpeedNews()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/speed_news_icon"
+                            android:layout_width="@dimen/dimen40dp"
+                            android:layout_height="@dimen/dimen40dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/papers" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/speed_news_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="Speed News"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
         </androidx.drawerlayout.widget.DrawerLayout>
+
 
         <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/address_looking_up"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerInParent="true"
             android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
 
-    </FrameLayout>
+    </RelativeLayout>
 
 </layout>

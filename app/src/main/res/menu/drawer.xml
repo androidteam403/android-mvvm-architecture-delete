@@ -14,26 +14,69 @@
   -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group>
-        <item
-            android:id="@+id/navItemAbout"
-            android:checked="true"
-            android:icon="@drawable/ic_info_24px"
-            android:title="@string/about" />
-        <item
-            android:id="@+id/navItemRateUs"
-            android:checked="true"
-            android:icon="@drawable/ic_star"
-            android:title="@string/rate_us" />
-        <item
-            android:id="@+id/navItemFeed"
-            android:checked="true"
-            android:icon="@drawable/ic_rss_symbol"
-            android:title="@string/feed" />
-        <item
-            android:id="@+id/navItemLogout"
-            android:checked="true"
-            android:icon="@drawable/ic_power_settings_new_24px"
-            android:title="@string/logout" />
+    <item
+        android:id="@+id/main_edit"
+        android:checked="true"
+        android:title="MainEdition" />
+    <group
+        android:id="@+id/main_edition_group"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <menu>
+
+            <item
+                android:id="@+id/memberone"
+                android:title="Member one" />
+
+            <item
+                android:id="@+id/membertwo"
+                android:title="Member Two" />
+            <item
+                android:id="@+id/memberthree"
+                android:title="Member Three" />
+
+        </menu>
+
     </group>
+    <group>
+
+        <item
+            android:id="@+id/andhra"
+            android:checked="true"
+            android:title="ANDHRA PRADESH" />
+        <item
+            android:id="@+id/telengana"
+            android:checked="true"
+            android:title="TELENGANA" />
+        <item
+            android:id="@+id/karnataka"
+            android:checked="true"
+            android:title="KARNATAKA" />
+
+        <item
+            android:id="@+id/tamil_nadu"
+            android:checked="true"
+            android:title="TAMIL NADU" />
+        <item
+            android:id="@+id/magazines"
+            android:checked="true"
+            android:title="MAGAZINES" />
+        <item
+            android:id="@+id/about_us"
+            android:checked="true"
+            android:title="ABOUT US" />
+        <item
+            android:id="@+id/contact_us"
+            android:checked="true"
+            android:title="CONTACT US" />
+        <item
+            android:id="@+id/privacy_policy"
+            android:checked="true"
+            android:title="PRIVACY POLICY" />
+        <item
+            android:id="@+id/terma_conditions"
+            android:checked="true"
+            android:title="TERMS AND CONDITIONS" />
+    </group>
+
 </menu>
