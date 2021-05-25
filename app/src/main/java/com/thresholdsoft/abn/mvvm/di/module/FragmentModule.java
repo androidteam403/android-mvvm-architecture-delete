@@ -12,8 +12,8 @@ import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogAdapter;
 import com.thresholdsoft.abn.mvvm.ui.feed.blogs.BlogViewModel;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceAdapter;
 import com.thresholdsoft.abn.mvvm.ui.feed.opensource.OpenSourceViewModel;
-import com.thresholdsoft.abn.mvvm.ViewModelProviderFactory;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.EPaperFeedViewModel;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.livetvfeed.LiveTvViewModel;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedViewModel;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.speednews.SpeedNewsViewModel;
 import com.thresholdsoft.abn.mvvm.utils.rx.SchedulerProvider;
@@ -92,5 +92,12 @@ public class FragmentModule {
         Supplier<EPaperFeedViewModel> supplier = () -> new EPaperFeedViewModel(dataManager, schedulerProvider);
         ViewModelProviderFactory<EPaperFeedViewModel> factory = new ViewModelProviderFactory<>(EPaperFeedViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(EPaperFeedViewModel.class);
+    }
+
+    @Provides
+    LiveTvViewModel provideLiveTvFeedViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        Supplier<LiveTvViewModel> supplier = () -> new LiveTvViewModel(dataManager, schedulerProvider);
+        ViewModelProviderFactory<LiveTvViewModel> factory = new ViewModelProviderFactory<>(LiveTvViewModel.class, supplier);
+        return new ViewModelProvider(fragment, factory).get(LiveTvViewModel.class);
     }
 }

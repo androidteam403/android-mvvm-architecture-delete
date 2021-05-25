@@ -12,10 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -35,6 +36,7 @@ import com.thresholdsoft.abn.mvvm.ui.base.BaseActivity;
 import com.thresholdsoft.abn.mvvm.ui.login.LoginActivity;
 import com.thresholdsoft.abn.mvvm.ui.main.dialog.DropDownDialog;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.epapersfeed.EPaperFeedFragment;
+import com.thresholdsoft.abn.mvvm.ui.main.ui.livetvfeed.LiveTvFragment;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.model.NewsAreaCategoryModel;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.newsfeed.NewsFeedFragment;
 import com.thresholdsoft.abn.mvvm.ui.main.ui.speednews.SpeedNewsFragment;
@@ -51,6 +53,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     private NavigationView mNavigationView;
     private Toolbar mToolbar;
+
+    private boolean isMembersVisible = false;
+
 
     public static Intent newIntent(Context context) {
         return new Intent(context, MainActivity.class);
@@ -141,6 +146,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     public void onClickLiveTv() {
         bottomNavigationItemSelectionUnselectionHandling();
         mActivityMainBinding.livetv.setBackground(getResources().getDrawable(R.drawable.bottomnav_itemselected_bg));
+        LiveTvFragment liveTvFragment = new LiveTvFragment();
+        loadFragment(liveTvFragment, LiveTvFragment.TAG);
     }
 
     private void bottomNavigationItemSelectionUnselectionHandling() {
@@ -316,46 +323,64 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 R.layout.nav_header_main, mActivityMainBinding.navigationView, false);
         mActivityMainBinding.navigationView.addHeaderView(navHeaderMainBinding.getRoot());
         navHeaderMainBinding.setViewModel(mViewModel);
+//        setupNavigationView();
 
-        mNavigationView.getMenu().getItem(0).setActionView(R.layout.menu_image);
-        mNavigationView.getMenu().getItem(1).setActionView(R.layout.menu_image);
-        mNavigationView.getMenu().getItem(2).setActionView(R.layout.menu_image);
-        mNavigationView.getMenu().getItem(3).setActionView(R.layout.menu_image);
-        mNavigationView.getMenu().getItem(4).setActionView(R.layout.menu_image);
-        mNavigationView.getMenu().getItem(5).setActionView(R.layout.menu_image);
+//        mNavigationView.getMenu().getItem(0).setActionView(R.layout.menu_image);
+//        mNavigationView.getMenu().getItem(1).setActionView(R.layout.menu_image);
+//        mNavigationView.getMenu().getItem(2).setActionView(R.layout.menu_image);
+//        mNavigationView.getMenu().getItem(3).setActionView(R.layout.menu_image);
+//        mNavigationView.getMenu().getItem(4).setActionView(R.layout.menu_image);
+//        mNavigationView.getMenu().getItem(5).setActionView(R.layout.menu_image);
+    }
 
-//        mNavigationView.getMenu().setGroupVisible(R.id.MainEditGroup, false);
+    private void setupNavigationView() {
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switchScreen(item.getItemId());
+                return true;
+            }
 
+        });
+    }
 
-        mNavigationView.setNavigationItemSelectedListener(
-                item -> {
-                    mDrawer.closeDrawer(GravityCompat.START);
-                    switch (item.getItemId()) {
-                        case R.id.main_edit:
-//                            mNavigationView.getMenu().setGroupVisible(R.id.MainEditGroup, true);
-                            return true;
-                        case R.id.andhra:
-                            return true;
-                        case R.id.telengana:
-                            return true;
-                        case R.id.karnataka:
-                            return true;
-                        case R.id.tamil_nadu:
-                            return true;
-                        case R.id.magazines:
-                            return true;
-                        case R.id.about_us:
-                            return true;
-                        case R.id.contact_us:
-                            return true;
-                        case R.id.privacy_policy:
-                            return true;
-                        case R.id.terma_conditions:
-                            return true;
-                        default:
-                            return false;
-                    }
-                });
+    private void switchScreen(int id) {
+        switch (id) {
+            case R.id.main_edit:
+                if (!isMembersVisible) {
+                    mNavigationView.getMenu().setGroupVisible(R.id.main_edition_group, true);
+                    isMembersVisible = true;
+                } else {
+                    mNavigationView.getMenu().setGroupVisible(R.id.main_edition_group, false);
+                    isMembersVisible = false;
+                }
+                break;
+            case R.id.memberone:
+                Toast.makeText(MainActivity.this, "Member one selected", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.membertwo:
+                Toast.makeText(MainActivity.this, "Member two selected", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.memberthree:
+                Toast.makeText(MainActivity.this, "Member three selected", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.andhra:
+                break;
+            case R.id.telengana:
+                break;
+            case R.id.karnataka:
+                break;
+            case R.id.tamil_nadu:
+                break;
+            case R.id.magazines:
+                break;
+            case R.id.about_us:
+                break;
+            case R.id.contact_us:
+                break;
+            case R.id.privacy_policy:
+                break;
+        }
     }
 
     private void loadFragment(Fragment fragment, String TAG) {
